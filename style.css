@@ -1,0 +1,85 @@
+body {
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgba(216, 241, 230, 0.46) 0.1%,
+    rgba(233, 226, 226, 0.28) 90.1%
+  );
+}
+
+h1 {
+  color: grey;
+  padding: 5px;
+  font-size: 32px;
+  text-align: center;
+}
+footer {
+  text-align: center;
+  color: grey;
+  font-size: x-small;
+}
+.container {
+  border-color: grey;
+  border-style: solid;
+  border-radius: 6px;
+  padding: 25px;
+  margin: 25px;
+}
+
+h1,
+p,
+.high-temp,
+.low-temp,
+.card-title,
+.card-text,
+.search-bar,
+.sun-moon {
+  font-family: "Lora", serif;
+  color: #272343;
+}
+.current-emoji {
+  text-align: center;
+  padding-top: 10px;
+  font-size: 56px;
+}
+
+.upcoming-weather .card-title,
+.upcoming-weather .card-text {
+  font-size: small;
+  text-align: center;
+}
+
+.high-temp {
+  color: pink;
+}
+.low-temp {
+  color: lightblue;
+}
+
+.sun-moon {
+  font-size: medium;
+  text-align: center;
+}
+button {
+  font-family: "Lora", serif;
+  color: white;
+  border-radius: 4px;
+  border: 1px solid grey;
+  background: grey;
+  padding: 2px 20px 2px 20px;
+  transition: all 200ms ease-in-out;
+}
+button:hover {
+  background: #272343;
+  color: white;
+  cursor: pointer;
+}
+
+button.location-button {
+  font-family: "Lora", serif;
+  color: white;
+  border-radius: 4px;
+  border: 1px solid green;
+  background: green;
+  padding: 2px 20px 2px 20px;
+  transition: all 200ms ease-in-out;
+}
