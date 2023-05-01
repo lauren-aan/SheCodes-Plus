@@ -43,16 +43,12 @@ li {
   color: #272343;
 }
 
-.current-emoji {
+.current-emoji,
+.future-emoji {
   text-align: center;
   padding-top: 10px;
   font-size: 56px;
-}
-
-.upcoming-weather .card-title,
-.upcoming-weather .card-text {
-  font-size: small;
-  text-align: center;
+  margin-top: 30px;
 }
 
 .high-temp {
@@ -63,11 +59,10 @@ li {
 }
 
 .sun-moon {
-  font-size: medium;
+  font-size: small;
   text-align: center;
 }
 button {
-  font-family: "Lora", serif;
   color: white;
   border-radius: 4px;
   border: 1px solid grey;
