@@ -7,7 +7,6 @@ body {
 }
 
 h1 {
-  color: grey;
   padding: 5px;
   font-size: 32px;
   text-align: center;
@@ -17,6 +16,17 @@ footer {
   color: grey;
   font-size: x-small;
 }
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 .container {
   border-color: grey;
   border-style: solid;
@@ -24,18 +34,15 @@ footer {
   padding: 25px;
   margin: 25px;
 }
-
-h1,
-p,
-.high-temp,
-.low-temp,
-.card-title,
-.card-text,
-.search-bar,
-.sun-moon {
+.weather-app {
+  max-width: 600px; /* fixing the width of the content within weather-app to 600px */
+  margin: 30px auto;
+  padding: 20px;
+  border: 1px solid grey;
   font-family: "Lora", serif;
   color: #272343;
 }
+
 .current-emoji {
   text-align: center;
   padding-top: 10px;

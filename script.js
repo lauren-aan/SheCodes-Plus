@@ -43,6 +43,17 @@ function dateTime(data) {
 
   let time = document.querySelector("#currentTime");
   time.innerHTML = `${hours}:${minutes}`;
+
+  let greeting = document.querySelector("#greeting");
+  if (hours < 12) {
+    greeting.innerHTML = "good morning";
+  } else {
+    if (hours > 18) {
+      greeting.innerHTML = "good evening";
+    } else {
+      greeting.innerHTML = "good afternoon";
+    }
+  }
 }
 
 // Sending info to Time and Date Function //

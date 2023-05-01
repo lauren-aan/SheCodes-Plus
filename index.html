@@ -19,182 +19,187 @@
       src="https://kit.fontawesome.com/6c4d8fafee.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="style.css" />
+
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <!-- Link to CSS page is at the bottom so it takes priority over google fonts if requested-->
+    <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
     <div class="container">
-      <div class="row">
-        <div class="col-5" id="todaysDate">
-          <p>[insert date]</p>
-        </div>
-        <div class="col-3">
-          <form class="search-bar" id="searchButton">
-            <input
-              type="search"
-              placeholder="Search location..."
-              id="searchInput"
-            />
-          </form>
-        </div>
-        <div class="col-2">
-          <button>Go!</button>
-        </div>
-        <div class="col-2">
-        <button class = "location-button" type="button" class="btn btn-success">📍 </button>
-        </div>
-
-      </div>
-
-      <h1>
-        Good morning / good afternoon / good evening
-        <span class="location" id="locationEntered"
-          ><strong>[insert location]</strong></span
-        >
-      </h1>
-      <br />
-
-      <div class="row">
-        <div class="col-2">
-          <div class="current-emoji"><i class="fa-solid fa-sun"></i></div>
-        </div>
-
-        <div class="col-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title" id="currentTime">[Insert Time?]</h5>
-          <p class="card-text">
-            Temperature: <span id="convertTemp">10</span><span id="degC">°C</span><span id="degF"> |°F</a></span>
-             <br />
-            Humidity: <span id="humidity">0</span>%
-            <br />
-            Wind: <span id="wind">5</span> mph
-            <br />
-            Condition: <span id="condition">Clear</span>
-          </p>
-            </div>
+      <div class="weather-app">
+        <div class="row">
+          <div class="col-5" id="todaysDate">
+            <span class="date-top">[insert date]</span>
+          </div>
+          <div class="col-3">
+            <form class="search-bar" id="searchButton">
+              <input
+                type="search"
+                placeholder="Search location..."
+                id="searchInput"
+              />
+            </form>
+          </div>
+          <div class="col-2">
+            <button>Go!</button>
+          </div>
+          <div class="col-2">
+            <button
+              class="location-button"
+              type="button"
+              class="btn btn-success"
+            >
+              📍
+            </button>
           </div>
         </div>
+        <br />
+        <h1>
+          <span id="greeting"
+            >good morning / good afternoon / good evening</span
+          >
+          <span class="location" id="locationEntered"
+            ><strong>[insert location]</strong></span
+          >
+        </h1>
+        <br />
 
-        <div class="col-2">
-          <div class="current-emoji"><i class="fa-solid fa-cloud"></i></div>
-        </div>
-
-        <div class="col-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">[6 hours later]</h5>
-              <p class="card-text">
-                Temperature: 8°C
-                <br />
-                Precipitation: 10%
-                <br />
-                Wind: 10 mph
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <br />
-
-      <section class="upcoming-weather">
         <div class="row">
           <div class="col-2">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Day 1</h5>
-                <p class="card-text"><i class="fa-solid fa-rainbow"></i></p>
-                <span class="high-temp"><strong>H°</strong></span
-                ><span class="low-temp">/ L°</span>
-              </div>
-            </div>
+            <div class="current-emoji"><i class="fa-solid fa-sun"></i></div>
           </div>
-          <div class="col-2">
+
+          <div class="col-4">
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title">Day 2</h5>
-                <p class="card-text"><i class="fa-solid fa-cloud-rain"></i></p>
-                <span class="high-temp"><strong>H°</strong></span
-                ><span class="low-temp">/ L°</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-2">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Day 3</h5>
-                <p class="card-text"><i class="fa-solid fa-snowman"></i></p>
-                <span class="high-temp"><strong>H°</strong></span
-                ><span class="low-temp">/ L°</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-2">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Day 4</h5>
-                <p class="card-text"><i class="fa-solid fa-snowman"></i></p>
-                <span class="high-temp"><strong>H°</strong></span
-                ><span class="low-temp">/ L°</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-2">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Day 5</h5>
+                <h5 class="card-title" id="currentTime">[Insert Time?]</h5>
                 <p class="card-text">
-                  <i class="fa-solid fa-cloud-sun-rain"></i>
+                  <ul>
+                    <li>
+                   Temperature: <span id="convertTemp">10</span><span id="degC">°C</span><span id="degF"> |°F </span> 
+                  </li>
+                  <li>
+                   Humidity: <span id="humidity">0</span>% 
+                  </li>
+                  <li>
+                  Wind: <span id="wind">5</span> mph  
+                  </li>
+                  <li>
+                   <span id="condition">Clear</span> 
+                  </li>
+                </ul>                 
                 </p>
-                <span class="high-temp"><strong>H°</strong></span
-                ><span class="low-temp">/ L°</span>
               </div>
             </div>
           </div>
+
           <div class="col-2">
+            <div class="current-emoji"><i class="fa-solid fa-cloud"></i></div>
+          </div>
+
+          <div class="col-4">
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title">Day 6</h5>
-                <p class="card-text"><i class="fa-solid fa-sun"></i></p>
-                <span class="high-temp"><strong>H°</strong></span
-                ><span class="low-temp">/ L°</span>
+                <h5 class="card-title">[6 hours later]</h5>
+                <p class="card-text">
+                  Temperature: 8°C
+                  <br />
+                  Precipitation: 10%
+                  <br />
+                  Wind: 10 mph
+                  <br />
+                  Rainy
+                </p>
               </div>
             </div>
           </div>
         </div>
-      </section>
+        <br />
+        <br />
 
-      <br />
-      <hr />
-
-      <section class="sun-moon">
         <div class="row">
-          <div class="col-3">
-            <div>Sun Rise</div>
-            <div>Time</div>
+          <div class="col-2">
+            <div>Day 1</div>
+            <div><i class="fa-solid fa-rainbow"></i></div>
+            <span class="high-temp"><strong>H°</strong></span>
+            <span class="low-temp">/ L°</span>
           </div>
 
-          <div class="col-3">
-            <div>Sun Set</div>
-            <div>Time</div>
+          <div class="col-2">
+            <div>Day 1</div>
+            <div><i class="fa-solid fa-rainbow"></i></div>
+            <span class="high-temp"><strong>H°</strong></span>
+            <span class="low-temp">/ L°</span>
           </div>
 
-          <div class="col-3">
-            <div>Moon Phase</div>
-            <div>Waxing</div>
+          <div class="col-2">
+            <div>Day 1</div>
+            <div><i class="fa-solid fa-rainbow"></i></div>
+            <span class="high-temp"><strong>H°</strong></span>
+            <span class="low-temp">/ L°</span>
           </div>
 
-          <div class="col-3">
-            <div>Full Moon</div>
-            <div>Date</div>
+          <div class="col-2">
+            <div>Day 1</div>
+            <div><i class="fa-solid fa-rainbow"></i></div>
+            <span class="high-temp"><strong>H°</strong></span>
+            <span class="low-temp">/ L°</span>
+          </div>
+
+          <div class="col-2">
+            <div>Day 1</div>
+            <div><i class="fa-solid fa-rainbow"></i></div>
+            <span class="high-temp"><strong>H°</strong></span>
+            <span class="low-temp">/ L°</span>
+          </div>
+
+          <div class="col-2">
+            <div>Day 1</div>
+            <div><i class="fa-solid fa-rainbow"></i></div>
+            <span class="high-temp"><strong>H°</strong></span>
+            <span class="low-temp">/ L°</span>
           </div>
         </div>
-      </section>
+
+        <hr />
+
+        <section class="sun-moon">
+          <div class="row">
+            <div class="col-3">
+              <div>Sun Rise</div>
+              <div>Time</div>
+            </div>
+
+            <div class="col-3">
+              <div>Sun Set</div>
+              <div>Time</div>
+            </div>
+
+            <div class="col-3">
+              <div>Moon Phase</div>
+              <div>Waxing</div>
+            </div>
+
+            <div class="col-3">
+              <div>Full Moon</div>
+              <div>Date</div>
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
 
     <footer>
-      <p><a href="https://github.com/lauren-innova/SheCodes-Plus" target="_blank"> Open-source code </a> by Lauren Grant</p>
+      <p>
+        <a
+          href="https://github.com/lauren-innova/SheCodes-Plus"
+          target="_blank"
+        >
+          Open-source code
+        </a>
+        by Lauren Grant
+      </p>
     </footer>
   </body>
   <script src="script.js"></script>
