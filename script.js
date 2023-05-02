@@ -52,6 +52,7 @@ function formatTime(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
+// Function using the data from the API
 function displayTemperature(response) {
   console.log(response.data.time);
   let temperatureElement = document.querySelector("#temperature");
@@ -65,11 +66,18 @@ function displayTemperature(response) {
   let windElement = document.querySelector("#wind");
   windElement.innerHTML = Math.round(response.data.wind.speed);
   let dateElement = document.querySelector("#todaysDate");
-  dateElement.innerHTML = formatTime(response.data.time * 1000);
+  dateElement.innerHTML = formatTime(response.data.time * 1000); // Sending the date to the formatTime function
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
+  );
+  iconElement.setAttribute("alt", response.data.condition.icon);
 }
 
+// API Call
 let key = "a3co8cfc69t20f3a05200f0a3ac4b3e8";
-let query = "Paris";
+let query = "Houston";
 let units = "metric";
 let url = `https://api.shecodes.io/weather/v1/current?query=${query}&key=${key}&units=${units}`;
 
