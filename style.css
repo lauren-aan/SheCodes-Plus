@@ -42,6 +42,9 @@ li {
   font-family: "Lora", serif;
   color: #272343;
 }
+#description {
+  text-transform: capitalize; /* makes the first letters capital for the weather description from API */
+}
 
 .current-emoji,
 .future-emoji {
