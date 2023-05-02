@@ -29,30 +29,40 @@
     <div class="container">
       <div class="weather-app">
         <div class="row">
-          <div class="col-5" >
+          <div class="col-3" >
             <span id="todaysDate">[insert date]</span>
           </div>
+          <!-- Search bar code -->
           <div class="col-3">
-            <form class="search-bar" id="searchButton">
+            <form class="search-bar" id="searchBar">
               <input
                 type="search"
                 placeholder="Search location..."
                 id="searchInput"
+                class="form-control" 
               />
+              </form>
+            </div>
+              <!-- class = "form-control" - Bootstrap making the button look prettier-->
+               <div class="col-3">
+                <form>
+            <input
+            type="submit"
+            value="🔎"
+            class="form-control"
+            />
+          </form>
+          </div>
+           <div class="col-3">
+            <form>
+            <input
+            type="search"
+            value="📍 Current Location"
+            class="form-control"
+            />
+          </div>
             </form>
-          </div>
-          <div class="col-2">
-            <button>Go!</button>
-          </div>
-          <div class="col-2">
-            <button
-              class="location-button"
-              type="button"
-              class="btn btn-success"
-            >
-              📍
-            </button>
-          </div>
+        
         </div>
         <br />
         <h1>

@@ -75,10 +75,20 @@ function displayTemperature(response) {
   iconElement.setAttribute("alt", response.data.condition.icon);
 }
 
-// API Call
-let key = "a3co8cfc69t20f3a05200f0a3ac4b3e8";
-let query = "Houston";
-let units = "metric";
-let url = `https://api.shecodes.io/weather/v1/current?query=${query}&key=${key}&units=${units}`;
+function search(city) {
+  let key = "a3co8cfc69t20f3a05200f0a3ac4b3e8";
+  let units = "metric";
+  let url = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${key}&units=${units}`;
+  axios.get(url).then(displayTemperature); // API Call
+}
 
-axios.get(url).then(displayTemperature);
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#searchInput");
+  search(cityInputElement.value); // remember .value so that it gives you the city name, not the object!
+}
+
+search("London"); // Defaults to London on load
+
+let form = document.querySelector("#searchBar");
+form.addEventListener("submit", handleSubmit);
