@@ -1,15 +1,12 @@
 body {
-  background: radial-gradient(
-    circle at 10% 20%,
-    rgba(216, 241, 230, 0.46) 0.1%,
-    rgba(233, 226, 226, 0.28) 90.1%
-  );
+  background: white;
 }
 
 h1 {
   padding: 5px;
-  font-size: 32px;
+  font-size: 34px;
   text-align: center;
+  margin-top: 32px;
 }
 footer {
   text-align: center;
@@ -27,20 +24,30 @@ li {
   padding: 0;
 }
 
+footer {
+  max-width: 600px;
+}
+
 .container {
+  max-width: 600px; /* fixing the width of the content within container to 600px */
   border-color: grey;
   border-style: solid;
   border-radius: 6px;
   padding: 25px;
   margin: 25px;
+  font-family: "Lora", serif;
+  color: #272343;
+
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgba(216, 241, 230, 0.46) 0.1%,
+    rgba(233, 226, 226, 0.28) 90.1%
+  );
 }
 .weather-app {
-  max-width: 600px; /* fixing the width of the content within weather-app to 600px */
   margin: 30px auto;
   padding: 20px;
   border: 1px solid grey;
-  font-family: "Lora", serif;
-  color: #272343;
 }
 #description {
   text-transform: capitalize; /* makes the first letters capital for the weather description from API */
@@ -51,7 +58,7 @@ li {
   text-align: center;
   padding-top: 10px;
   font-size: 56px;
-  margin-top: 30px;
+  margin-top: 15px;
 }
 
 .high-temp {
@@ -65,26 +72,38 @@ li {
   font-size: small;
   text-align: center;
 }
-button {
+
+.clickT {
+  text-decoration: none;
+  color: #272343;
+}
+
+#fahrenheit-link {
+  color: #ffcbcb;
+}
+
+#searchButton {
   color: white;
   border-radius: 4px;
-  border: 1px solid grey;
-  background: grey;
-  padding: 2px 20px 2px 20px;
+  background: #ffcbcb;
   transition: all 200ms ease-in-out;
 }
-button:hover {
-  background: #272343;
+
+#searchButton:hover {
+  background: white;
   color: white;
   cursor: pointer;
 }
 
-button.location-button {
-  font-family: "Lora", serif;
+#currentLocationButton {
   color: white;
   border-radius: 4px;
-  border: 1px solid green;
-  background: green;
-  padding: 2px 20px 2px 20px;
+  background: #ffcbcb;
   transition: all 200ms ease-in-out;
+}
+
+#currentLocationButton:hover {
+  background: white;
+  color: white;
+  cursor: pointer;
 }

@@ -27,13 +27,11 @@
 
   <body>
     <div class="container">
-      <div class="weather-app">
+
+        <p class = "header"> It's <span id="todaysDate">[insert date] </span> local time - <span id="greeting">[location]</span>!</p>
         <div class="row">
-          <div class="col-3" >
-            <span id="todaysDate">[insert date]</span>
-          </div>
           <!-- Search bar code -->
-          <div class="col-3">
+          <div class="col-8">
             <form class="search-bar" id="searchBar">
               <input
                 type="search"
@@ -41,43 +39,42 @@
                 id="searchInput"
                 class="form-control" 
               />
-              </form>
             </div>
               <!-- class = "form-control" - Bootstrap making the button look prettier-->
-               <div class="col-3">
-                <form>
+               <div class="col-2">
             <input
             type="submit"
             value="🔎"
             class="form-control"
+            id = "searchButton"
             />
           </form>
           </div>
-           <div class="col-3">
+           <div class="col-2">
             <form>
             <input
-            type="search"
-            value="📍 Current Location"
+            type="submit"
+            value="📍"
             class="form-control"
+            id = "currentLocationButton"
             />
-          </div>
-            </form>
-        
+          </form>
+          </div>            
         </div>
+
         <br />
-        <h1>
-          <span id="greeting"
-            >good morning / good afternoon / good evening</span
-          >
+
+        <div class="row">
+          <div class="col-4"> 
+            <h1> Hello!
           <span class="location" id="location"
             ><strong>[insert location]</strong></span
           >
         </h1>
-        <br />
-
-        <div class="row">
-          <div class="col-2">
-            <div class="current-emoji">
+            
+          </div>
+          <div class="col-3">
+       <div class="current-emoji">
               <img
               src = "#"
               alt="description"
@@ -86,14 +83,15 @@
             </div>
           </div>
 
-          <div class="col-4">
+          <div class="col-5">
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title" id="currentTime">[Insert Time?]</h5>
                 <p class="card-text">
                   <ul>
                     <li>
-                   <span id="temperature">10</span><span id="degC">°C</span> |<span id="degF"><a href = "#">°F </a></span> 
+                   <span id="temperature">10</span>
+                   <a href = "#" id="celsius-link" class = "clickT">°C</a> |
+                   <a href = "#" id="fahrenheit-link" class = "clickT">°F </a>
                   </li>
                   <li>
                    Humidity: <span id="humidity">0</span>% 
@@ -110,28 +108,8 @@
             </div>
           </div>
 
-          <div class="col-2">
-            <div class="future-emoji"><i class="fa-solid fa-cloud"></i></div>
-          </div>
 
-          <div class="col-4">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">[6 hours later]</h5>
-                <p class="card-text">
-                  Temperature: 8°C
-                  <br />
-                  Precipitation: 10%
-                  <br />
-                  Wind: 10 mph
-                  <br />
-                  Rainy
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
-        <br />
         <br />
 
 <section class="sun-moon">
@@ -179,32 +157,8 @@
           </div>
         </div>
 
-        <hr />
-
-        
-          <div class="row">
-            <div class="col-3">
-              <div>Sun Rise</div>
-              <div>Time</div>
-            </div>
-
-            <div class="col-3">
-              <div>Sun Set</div>
-              <div>Time</div>
-            </div>
-
-            <div class="col-3">
-              <div>Moon Phase</div>
-              <div>Waxing</div>
-            </div>
-
-            <div class="col-3">
-              <div>Full Moon</div>
-              <div>Date</div>
-            </div>
-          </div>
         </section>
-      </div>
+
     </div>
 
     <footer>

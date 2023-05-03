@@ -49,12 +49,11 @@ function formatTime(timestamp) {
     }
   }
 
-  return `${day} ${hours}:${minutes}`;
+  return `${hours}:${minutes}`;
 }
 
 // Function using the data from the API
 function displayTemperature(response) {
-  console.log(response.data.time);
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(response.data.temperature.current);
   let locationElement = document.querySelector("#location");
@@ -73,6 +72,9 @@ function displayTemperature(response) {
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
   iconElement.setAttribute("alt", response.data.condition.icon);
+
+  celsiusTemperature = response.data.temperature.current; // This is a global variable (it exists outside this function). When we click search, it fills this value in the variable.
+  console.log(response.data.time);
 }
 
 function search(city) {
@@ -88,7 +90,41 @@ function handleSubmit(event) {
   search(cityInputElement.value); // remember .value so that it gives you the city name, not the object!
 }
 
-search("London"); // Defaults to London on load
+function displayFahrenheit(event) {
+  event.preventDefault();
+  let fahrenheitValue = (celsiusTemperature * 9) / 5 + 32;
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(fahrenheitValue);
+}
+function displayCelsius(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+function searchLocation(position) {
+  let key = "a3co8cfc69t20f3a05200f0a3ac4b3e8";
+  let url = `https://api.shecodes.io/weather/v1/current?lon=${position.coords.longitude}&lat=${position.coords.latitude}&key=${key}`;
+  axios.get(url).then(displayTemperature); // API Call
+}
+
+function currentLocationWeather(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(searchLocation);
+}
+
+let celsiusTemperature = null; // null means it has nothing in it until we search
 
 let form = document.querySelector("#searchBar");
 form.addEventListener("submit", handleSubmit);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheit);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsius);
+
+let currentLocationButton = document.querySelector("#currentLocationButton");
+currentLocationButton.addEventListener("click", currentLocationWeather);
+
+search("Glasgow"); // Defaults to London on load
