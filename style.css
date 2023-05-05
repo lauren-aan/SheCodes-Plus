@@ -107,3 +107,7 @@ footer {
 #fahrenheit-link:hover {
   font-weight: bolder;
 }
+
+#iconForecast {
+  margin-left: -10px;
+}
