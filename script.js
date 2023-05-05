@@ -52,7 +52,8 @@ function formatTime(timestamp) {
   return `${hours}:${minutes}`;
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast-temperatures");
 
   let forecastHTML = `<div class="row">`; // adding on bits of code together
@@ -78,6 +79,16 @@ function displayForecast() {
   console.log(forecastHTML);
 }
 
+function getForecast(coordinates) {
+  console.log(coordinates.data);
+  let key = "a3co8cfc69t20f3a05200f0a3ac4b3e8";
+  let units = "metric";
+  let apiURL = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${key}&units=${units}`;
+  console.log(apiURL);
+
+  axios.get(apiURL).then(displayForecast);
+}
+
 // Function using the data from the API
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
@@ -100,7 +111,9 @@ function displayTemperature(response) {
   iconElement.setAttribute("alt", response.data.condition.icon);
 
   celsiusTemperature = response.data.temperature.current; // This is a global variable (it exists outside this function). When we click search, it fills this value in the variable.
-  console.log(response.data.time);
+  console.log(response.data);
+
+  getForecast(response.data.coordinates);
 }
 
 function search(city) {
@@ -154,4 +167,3 @@ let currentLocationButton = document.querySelector("#currentLocationButton");
 currentLocationButton.addEventListener("click", currentLocationWeather);
 
 search("Aviemore"); // Defaults to London on load
-displayForecast();
