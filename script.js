@@ -49,34 +49,51 @@ function formatTime(timestamp) {
     }
   }
 
-  return `${hours}:${minutes}`;
+  return `${day} ${hours}:${minutes}`;
+}
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+
+  return days[day];
 }
 
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast-temperatures");
 
   let forecastHTML = `<div class="row">`; // adding on bits of code together
-  let days = ["Sat", "", "", "", "", ""];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
-    <div class="col-2">
-      <div>${day}</div>
-      <div>
-        <i class="fa-solid fa-rainbow"></i>
+
+  // loop for putting in each day
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
+      <div class="col-2">
+        <div id = "forecastDay">${formatDay(forecastDay.time)}</div>
+        <div>
+          <img
+          src=${forecastDay.condition.icon_url}
+                alt="${forecastDay.condition.description}"
+                id="iconForecast"
+                >
+        </div>
+        <span class="high-temp" id="high-temp">
+          <strong>${Math.round(forecastDay.temperature.maximum)}</strong>
+        </span>
+        /<span class="low-temp"> ${Math.round(
+          forecastDay.temperature.minimum
+        )}°</span>
       </div>
-      <span class="high-temp" id="high-temp">
-        <strong>H</strong>
-      </span>
-      /<span class="low-temp"> L°</span>
-    </div>
-  `;
+    `;
+    }
   });
+
   forecastHTML = forecastHTML + "</div>"; // closing
   forecastElement.innerHTML = forecastHTML;
-  console.log(forecastHTML);
 }
 
 function getForecast(coordinates) {
@@ -166,4 +183,4 @@ celsiusLink.addEventListener("click", displayCelsius);
 let currentLocationButton = document.querySelector("#currentLocationButton");
 currentLocationButton.addEventListener("click", currentLocationWeather);
 
-search("Aviemore"); // Defaults to London on load
+search("Aberlour"); // Defaults to London on load
