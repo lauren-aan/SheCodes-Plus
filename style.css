@@ -39,7 +39,7 @@ footer {
   color: #272343;
 
   background: radial-gradient(
-    circle at 10% 20%,
+    circle at 50% 20%,
     rgba(216, 241, 230, 0.46) 0.1%,
     rgba(233, 226, 226, 0.28) 90.1%
   );
@@ -62,13 +62,13 @@ footer {
 }
 
 .high-temp {
-  color: pink;
+  color: #ffcbcb;
 }
 .low-temp {
   color: lightblue;
 }
 
-.sun-moon {
+.weather-forecast {
   font-size: small;
   text-align: center;
 }
@@ -89,12 +89,6 @@ footer {
   transition: all 200ms ease-in-out;
 }
 
-#searchButton:hover {
-  background: white;
-  color: white;
-  cursor: pointer;
-}
-
 #currentLocationButton {
   color: white;
   border-radius: 4px;
@@ -102,8 +96,14 @@ footer {
   transition: all 200ms ease-in-out;
 }
 
+#searchButton:hover,
 #currentLocationButton:hover {
   background: white;
   color: white;
   cursor: pointer;
+}
+
+#celsius-link:hover,
+#fahrenheit-link:hover {
+  font-weight: bolder;
 }

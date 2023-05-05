@@ -52,6 +52,32 @@ function formatTime(timestamp) {
   return `${hours}:${minutes}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast-temperatures");
+
+  let forecastHTML = `<div class="row">`; // adding on bits of code together
+  let days = ["Sat", "", "", "", "", ""];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+    <div class="col-2">
+      <div>${day}</div>
+      <div>
+        <i class="fa-solid fa-rainbow"></i>
+      </div>
+      <span class="high-temp" id="high-temp">
+        <strong>H</strong>
+      </span>
+      /<span class="low-temp"> L°</span>
+    </div>
+  `;
+  });
+  forecastHTML = forecastHTML + "</div>"; // closing
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
+}
+
 // Function using the data from the API
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
@@ -127,4 +153,5 @@ celsiusLink.addEventListener("click", displayCelsius);
 let currentLocationButton = document.querySelector("#currentLocationButton");
 currentLocationButton.addEventListener("click", currentLocationWeather);
 
-search("Glasgow"); // Defaults to London on load
+search("Aviemore"); // Defaults to London on load
+displayForecast();
